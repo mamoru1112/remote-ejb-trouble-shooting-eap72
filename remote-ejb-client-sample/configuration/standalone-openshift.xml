@@ -62,11 +62,13 @@
                 </authorization>
             </security-realm>
 
+            <!--
             <security-realm name="ejb-security-realm">
                 <server-identities>
                     <secret value="cEBzc3cwcmQwMQ==" />
                 </server-identities>
             </security-realm>
+            -->
 
         </security-realms>
         <audit-log>
@@ -567,8 +569,8 @@
             <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
 
             <outbound-connections>
-                <remote-outbound-connection name="remote-ejb-connection-serverA" outbound-socket-binding-ref="remote-ejb-serverA" protocol="http-remoting" username="ejb" security-realm="ejb-security-realm">
-		        <!-- remote-outbound-connection name="remote-ejb-connection-serverA" outbound-socket-binding-ref="remote-ejb-serverA" protocol="http-remoting" -->
+                <!--remote-outbound-connection name="remote-ejb-connection-serverA" outbound-socket-binding-ref="remote-ejb-serverA" protocol="http-remoting" username="ejb" security-realm="ejb-security-realm" -->
+		        <remote-outbound-connection name="remote-ejb-connection-serverA" outbound-socket-binding-ref="remote-ejb-serverA" protocol="http-remoting">
 			        <properties>
 				        <property name="SASL_POLICY_NOANONYMOUS" value="false"/>
 				        <property name="SSL_ENABLED" value="false"/>
